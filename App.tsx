@@ -3,7 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {StatusBar} from 'react-native';
 import {Provider} from 'react-redux';
 import {store} from './src/store';
-import {RootNavigation} from './src/store/navigationStack/rootNavigationStack';
+import {RootNavigation} from './src/navigationStack/rootNavigationStack';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 function App(): JSX.Element {

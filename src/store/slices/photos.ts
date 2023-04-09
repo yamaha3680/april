@@ -1,4 +1,4 @@
-import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
+import {createAsyncThunk, createSelector, createSlice} from '@reduxjs/toolkit';
 import {isAxiosError} from 'axios';
 import {RootState} from '../index';
 import {axiosInstance} from '../../axiosInstance';
@@ -74,3 +74,10 @@ export const counterSlice = createSlice({
       });
   },
 });
+
+const selfSelector = (state: RootState) => state.photos;
+
+export const selectPhotos = createSelector(
+  selfSelector,
+  state => state.getPhotos,
+);
