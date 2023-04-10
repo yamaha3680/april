@@ -45,11 +45,11 @@ const styles = StyleSheet.create({
   id: {
     color: 'black',
     fontSize: 16,
+    fontWeight: '600',
   },
   title: {
     flex: 1,
     color: 'black',
-    fontWeight: 'bold',
     fontSize: 16,
   },
 });
