@@ -1,6 +1,7 @@
 import React, {FC} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {TextProps} from 'react-native/Libraries/Text/Text';
+import normalize from 'react-native-normalize';
 
 export const EmptyTitle: FC<TextProps & {text?: string}> = ({
   text,
@@ -22,6 +23,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
 
     color: 'black',
-    fontSize: 16,
+    fontSize: normalize(16),
   },
 });

@@ -22,6 +22,7 @@ import {EmptyTitle} from '../../components/emptyTitle';
 import {StatusOfRequestEnum} from '../../types/statusOfRequestEnum';
 import {ViewJSON} from '../../components/viewJSON';
 import {HeartSVG} from '../../components/svg/heart';
+import normalize from 'react-native-normalize';
 
 export const PhotoDetails = () => {
   const dispatch = useAppDispatch();
@@ -48,8 +49,8 @@ export const PhotoDetails = () => {
           <TouchableOpacity
             onPress={() => dispatch(isLiked ? deleteLike(id) : addLike(id))}>
             <HeartSVG
-              height={40}
-              width={40}
+              height={normalize(40)}
+              width={normalize(40)}
               color={isLiked ? 'red' : 'black'}
             />
           </TouchableOpacity>
@@ -73,14 +74,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
     alignItems: 'stretch',
-    gap: 20,
+    gap: normalize(20),
 
-    padding: 20,
+    paddingVertical: normalize(40),
+    paddingHorizontal: normalize(20),
   },
   topView: {
     display: 'flex',
     flexDirection: 'column',
-    gap: 40,
+    gap: normalize(40),
   },
   titleContainer: {
     display: 'flex',
@@ -89,12 +91,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   id: {
-    fontSize: 20,
+    fontSize: normalize(20),
     fontWeight: 'bold',
     color: 'black',
   },
   text: {
-    fontSize: 20,
+    fontSize: normalize(20),
     color: 'black',
   },
 });

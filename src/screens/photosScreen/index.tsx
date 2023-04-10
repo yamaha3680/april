@@ -11,10 +11,9 @@ import {useAppDispatch} from '../../store';
 import {getPhotosThunk, selectPhotos} from '../../store/slices/photos';
 import {useSelector} from 'react-redux';
 import {Photo} from '../../types/photo';
-import {StatusOfRequestEnum} from '../../types/statusOfRequestEnum';
 import {ClearSVG} from '../../components/svg/clear';
-import {EmptyTitle} from '../../components/emptyTitle';
 import {ViewPhotoList} from '../../components/viewPhotoList';
+import normalize from 'react-native-normalize';
 
 export const Photos = () => {
   const isFocused = useIsFocused();
@@ -47,7 +46,7 @@ export const Photos = () => {
         />
         {sortString !== '' && (
           <TouchableOpacity onPress={() => setSortString('')}>
-            <ClearSVG height={20} width={20} />
+            <ClearSVG height={normalize(20)} width={normalize(20)} />
           </TouchableOpacity>
         )}
       </View>
@@ -67,25 +66,27 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    gap: 20,
+    gap: normalize(20),
 
-    paddingTop: 20,
-    paddingHorizontal: 20,
+    paddingTop: normalize(40),
+    paddingHorizontal: normalize(20),
   },
   inputContainer: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
 
-    paddingHorizontal: 12,
+    height: normalize(40),
+
+    paddingHorizontal: normalize(12),
 
     backgroundColor: '#e5e4e4',
-    borderRadius: 8,
+    borderRadius: normalize(8),
   },
   input: {
     flex: 1,
 
-    fontSize: 16,
+    fontSize: normalize(16),
     color: 'black',
   },
 });

@@ -1,11 +1,12 @@
 import {useSelector} from 'react-redux';
 import {getPhotosThunk, selectLikedPhotos} from '../../store/slices/photos';
-import {SafeAreaView, StyleSheet} from 'react-native';
+import {SafeAreaView, StyleSheet, View} from 'react-native';
 import {ViewPhotoList} from '../../components/viewPhotoList';
 import React, {useCallback, useEffect} from 'react';
 import {useIsFocused, useNavigation} from '@react-navigation/native';
 import {useAppDispatch} from '../../store';
 import {Photo} from '../../types/photo';
+import normalize from 'react-native-normalize';
 
 export const LikedPhotos = () => {
   const isFocused = useIsFocused();
@@ -40,9 +41,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    gap: 20,
+    gap: normalize(20),
 
-    paddingTop: 20,
-    paddingHorizontal: 20,
+    paddingTop: normalize(40),
+    paddingHorizontal: normalize(20),
   },
 });

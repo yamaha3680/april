@@ -1,5 +1,6 @@
 import React, {FC, memo} from 'react';
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import normalize from 'react-native-normalize';
 
 const ViewJSONComponent: FC<{value: unknown}> = ({value}) => {
   return (
@@ -22,9 +23,9 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'stretch',
-    gap: 8,
+    gap: normalize(8),
 
-    padding: 20,
+    padding: normalize(20),
 
     backgroundColor: '#e5e4e4',
   },

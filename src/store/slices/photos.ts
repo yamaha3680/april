@@ -95,8 +95,12 @@ export const getPhotoByIdThunk = createAsyncThunk<
     }
   },
   {
-    condition: (_, {getState}) =>
-      getState().photos.getPhotos.status !== StatusOfRequestEnum.LOADING,
+    condition: (id, {getState}) =>
+      !(
+        id in getState().photos.getPhotoById &&
+        getState().photos.getPhotoById[id]?.status ===
+          StatusOfRequestEnum.LOADING
+      ),
   },
 );
 

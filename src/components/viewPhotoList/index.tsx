@@ -1,13 +1,14 @@
 import React, {FC, memo} from 'react';
-import {StatusOfRequestEnum} from '../types/statusOfRequestEnum';
-import {EmptyTitle} from './emptyTitle';
+import {StatusOfRequestEnum} from '../../types/statusOfRequestEnum';
+import {EmptyTitle} from '../emptyTitle';
 import {FlatList, StyleSheet} from 'react-native';
-import {PhotoComponent} from './photoComponent';
-import {getPhotosThunk} from '../store/slices/photos';
-import {Photo} from '../types/photo';
+import {PhotoComponent} from '../photoComponent';
+import {getPhotosThunk} from '../../store/slices/photos';
+import {Photo} from '../../types/photo';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {RootNavigationParams} from '../navigationStack/navigationTypes';
-import {useAppDispatch} from '../store';
+import {RootNavigationParams} from '../../navigationStack/navigationTypes';
+import {useAppDispatch} from '../../store';
+import normalize from 'react-native-normalize';
 
 type ViewPhotoListProps = {
   status: StatusOfRequestEnum;
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({
   flatContainer: {
     justifyContent: 'flex-start',
     alignItems: 'stretch',
-    gap: 10,
+    gap: normalize(10),
   },
 });
 
