@@ -1,14 +1,14 @@
 import {useSelector} from 'react-redux';
 import {getPhotosThunk, selectLikedPhotos} from '../../store/slices/photos';
-import {SafeAreaView, StyleSheet, View} from 'react-native';
-import {ViewPhotoList} from '../../components/viewPhotoList';
+import {SafeAreaView, StyleSheet} from 'react-native';
+import {ViewPhotoList} from '../../components/ViewPhotoList';
 import React, {useCallback, useEffect} from 'react';
 import {useIsFocused, useNavigation} from '@react-navigation/native';
 import {useAppDispatch} from '../../store';
 import {Photo} from '../../types/photo';
 import normalize from 'react-native-normalize';
 
-export const LikedPhotos = () => {
+export const LikedPhotosScreen = () => {
   const isFocused = useIsFocused();
   const dispatch = useAppDispatch();
   const {navigate} = useNavigation();

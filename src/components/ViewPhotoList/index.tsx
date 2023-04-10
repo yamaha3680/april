@@ -1,8 +1,8 @@
 import React, {FC, memo} from 'react';
 import {StatusOfRequestEnum} from '../../types/statusOfRequestEnum';
-import {EmptyTitle} from '../emptyTitle';
+import {EmptyTitle} from '../EmptyTitle';
 import {FlatList, StyleSheet} from 'react-native';
-import {PhotoComponent} from '../photoComponent';
+import {PhotoComponent} from '../PhotoComponent';
 import {getPhotosThunk} from '../../store/slices/photos';
 import {Photo} from '../../types/photo';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';

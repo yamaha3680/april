@@ -11,11 +11,11 @@ import {useAppDispatch} from '../../store';
 import {getPhotosThunk, selectPhotos} from '../../store/slices/photos';
 import {useSelector} from 'react-redux';
 import {Photo} from '../../types/photo';
-import {ClearSVG} from '../../components/svg/clear';
-import {ViewPhotoList} from '../../components/viewPhotoList';
+import {ClearSVG} from '../../components/svg/Clear';
+import {ViewPhotoList} from '../../components/ViewPhotoList';
 import normalize from 'react-native-normalize';
 
-export const Photos = () => {
+export const PhotosScreen = () => {
   const isFocused = useIsFocused();
   const dispatch = useAppDispatch();
   const {navigate} = useNavigation();

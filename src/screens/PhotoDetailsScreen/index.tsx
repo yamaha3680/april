@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -18,13 +18,13 @@ import {
   selectPhotoById,
 } from '../../store/slices/photos';
 import {useSelector} from 'react-redux';
-import {EmptyTitle} from '../../components/emptyTitle';
+import {EmptyTitle} from '../../components/EmptyTitle';
 import {StatusOfRequestEnum} from '../../types/statusOfRequestEnum';
-import {ViewJSON} from '../../components/viewJSON';
-import {HeartSVG} from '../../components/svg/heart';
+import {ViewJSON} from '../../components/ViewJSON';
+import {HeartSVG} from '../../components/svg/Heart';
 import normalize from 'react-native-normalize';
 
-export const PhotoDetails = () => {
+export const PhotoDetailsScreen = () => {
   const dispatch = useAppDispatch();
   const {
     params: {id},
