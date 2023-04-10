@@ -175,6 +175,11 @@ export const selectPhotos = createSelector(
   state => state.getPhotos,
 );
 
+export const selectLikes = createSelector(
+  selfSelector,
+  state => state.likedPhotos,
+);
+
 export const selectPhotoById = (id: number) =>
   createSelector(selfSelector, state => {
     if (id in state.getPhotoById) {
@@ -196,3 +201,17 @@ export const selectPhotoById = (id: number) =>
 
 export const checkLikes = (id: number) =>
   createSelector(selfSelector, state => id in state.likedPhotos);
+
+export const selectLikedPhotos = createSelector(
+  selectPhotos,
+  selectLikes,
+  (photos, likes) => {
+    if (
+      photos.status !== StatusOfRequestEnum.SUCCESS ||
+      photos.data.length === 0
+    ) {
+      return {...photos, data: []};
+    }
+    return {...photos, data: photos.data.filter(item => item.id in likes)};
+  },
+);

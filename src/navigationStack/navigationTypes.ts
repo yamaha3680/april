@@ -2,7 +2,7 @@ import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
 
 export type BottomTabsParams = {
   Photos: undefined;
-  Posts: undefined;
+  Liked: undefined;
 };
 
 export type RootNavigationParams = {

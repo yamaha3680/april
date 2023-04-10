@@ -1,23 +1,22 @@
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {
-  FlatList,
   SafeAreaView,
   StyleSheet,
   TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {useIsFocused, useNavigation} from '@react-navigation/native';
 import {useAppDispatch} from '../../store';
 import {getPhotosThunk, selectPhotos} from '../../store/slices/photos';
 import {useSelector} from 'react-redux';
 import {Photo} from '../../types/photo';
-import {PhotoComponent} from '../../components/photoComponent';
 import {StatusOfRequestEnum} from '../../types/statusOfRequestEnum';
 import {ClearSVG} from '../../components/svg/clear';
 import {EmptyTitle} from '../../components/emptyTitle';
+import {ViewPhotoList} from '../../components/viewPhotoList';
 
-export const ListOfPhotos = () => {
+export const Photos = () => {
   const isFocused = useIsFocused();
   const dispatch = useAppDispatch();
   const {navigate} = useNavigation();
@@ -35,7 +34,7 @@ export const ListOfPhotos = () => {
   }, [dispatch, isFocused]);
 
   const keyExtractor = useCallback((item: Photo) => {
-    return `list-of-photos-${item.id}`;
+    return `photos-${item.id}`;
   }, []);
 
   return (
@@ -52,27 +51,12 @@ export const ListOfPhotos = () => {
           </TouchableOpacity>
         )}
       </View>
-      {sortedData.length === 0 && <EmptyTitle />}
-      {status === StatusOfRequestEnum.ERROR && (
-        <EmptyTitle text={error || undefined} />
-      )}
-      {status === StatusOfRequestEnum.LOADING && sortedData.length === 0 && (
-        <EmptyTitle text="Loading..." />
-      )}
-      <FlatList
-        contentContainerStyle={styles.flatContainer}
-        style={styles.flat}
+      <ViewPhotoList
+        error={error}
+        status={status}
+        navigate={navigate}
         keyExtractor={keyExtractor}
         data={sortedData}
-        renderItem={item => (
-          <PhotoComponent
-            id={item.item.id}
-            title={item.item.title}
-            navigate={navigate}
-          />
-        )}
-        refreshing={status === StatusOfRequestEnum.LOADING}
-        onRefresh={() => dispatch(getPhotosThunk)}
       />
     </SafeAreaView>
   );
@@ -87,12 +71,6 @@ const styles = StyleSheet.create({
 
     paddingTop: 20,
     paddingHorizontal: 20,
-  },
-  flat: {flex: 1, width: '100%'},
-  flatContainer: {
-    justifyContent: 'flex-start',
-    alignItems: 'stretch',
-    gap: 10,
   },
   inputContainer: {
     display: 'flex',
