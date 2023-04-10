@@ -24,7 +24,7 @@ export const ListOfPhotos = () => {
 
   const [sortString, setSortString] = useState('');
 
-  const {data, status} = useSelector(selectPhotos);
+  const {data, status, error} = useSelector(selectPhotos);
 
   const sortedData = useMemo(() => {
     return data.filter(item => item.title.includes(sortString));
@@ -53,6 +53,12 @@ export const ListOfPhotos = () => {
         )}
       </View>
       {sortedData.length === 0 && <EmptyTitle />}
+      {status === StatusOfRequestEnum.ERROR && (
+        <EmptyTitle text={error || undefined} />
+      )}
+      {status === StatusOfRequestEnum.LOADING && sortedData.length === 0 && (
+        <EmptyTitle text="Loading..." />
+      )}
       <FlatList
         contentContainerStyle={styles.flatContainer}
         style={styles.flat}

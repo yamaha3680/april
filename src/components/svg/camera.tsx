@@ -2,6 +2,7 @@ import React, {FC} from 'react';
 import {SvgProps} from 'react-native-svg/src/elements/Svg';
 import {SVGTemplate} from './index';
 import {Path} from 'react-native-svg';
+
 export const CameraSVG: FC<SvgProps> = props => (
   <SVGTemplate viewBox="0 0 32 32" {...props}>
     <Path

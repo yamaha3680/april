@@ -1,6 +1,5 @@
-import * as React from 'react';
+import React, {FC} from 'react';
 import {SVGTemplate} from './index';
-import {FC} from 'react';
 import {SvgProps} from 'react-native-svg/src/elements/Svg';
 import {Path} from 'react-native-svg';
 export const FileSVG: FC<SvgProps> = props => (

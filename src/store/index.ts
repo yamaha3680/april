@@ -1,10 +1,10 @@
 import {configureStore} from '@reduxjs/toolkit';
 import {useDispatch} from 'react-redux';
-import {counterSlice} from './slices/photos';
+import {photosSlice} from './slices/photos';
 
 export const store = configureStore({
   reducer: {
-    photos: counterSlice.reducer,
+    photos: photosSlice.reducer,
   },
 });
 
